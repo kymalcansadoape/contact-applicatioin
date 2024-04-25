@@ -21,8 +21,6 @@ class Contacts extends Component
             $contact->delete();
         }
     }
-
-
     public function render()
     {
         return view('livewire.contacts', [
@@ -33,8 +31,7 @@ class Contacts extends Component
                         ->orWhere('phone', 'like', '%' . $this->search . '%')
                         ->orWhere('email', 'like', '%' . $this->search . '%');
                 })
-                ->paginate(1)
-
+                ->paginate(5)
         ]);
     }
 }
